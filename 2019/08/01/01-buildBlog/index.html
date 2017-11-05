@@ -3,19 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>为曾经吹过的牛逼奋斗终身！</title>
+  <title>从零开始搭建博客 | 为曾经吹过的牛逼奋斗终身！</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="为曾经吹过的牛逼奋斗终身！">
-<meta property="og:url" content="http://smileyt.cn/index.html">
+  <meta name="description" content="一、环境的搭建   下载安装 nodejs(https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-x64.msi) 检测node、npm管理工具是否安装成功 (命令行里输入 node -v、npm -v)    二、安装管理工具   命令行输入 1npm config set registry https://registry.npm.ta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始搭建博客">
+<meta property="og:url" content="http://smileyt.cn/2019/08/01/01-buildBlog/index.html">
 <meta property="og:site_name" content="为曾经吹过的牛逼奋斗终身！">
+<meta property="og:description" content="一、环境的搭建   下载安装 nodejs(https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-x64.msi) 检测node、npm管理工具是否安装成功 (命令行里输入 node -v、npm -v)    二、安装管理工具   命令行输入 1npm config set registry https://registry.npm.ta">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-01T09:30:40.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为曾经吹过的牛逼奋斗终身！">
+<meta name="twitter:title" content="从零开始搭建博客">
+<meta name="twitter:description" content="一、环境的搭建   下载安装 nodejs(https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-x64.msi) 检测node、npm管理工具是否安装成功 (命令行里输入 node -v、npm -v)    二、安装管理工具   命令行输入 1npm config set registry https://registry.npm.ta">
   
     <link rel="alternative" href="/atom.xml" title="为曾经吹过的牛逼奋斗终身！" type="application/atom+xml">
   
@@ -122,9 +126,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-01-buildBlog" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-01-buildBlog" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2019/08/01/01-buildBlog/" class="article-date">
@@ -140,15 +142,21 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/01/01-buildBlog/">
-        从零开始搭建博客
-        
-      </a>
+    <h1 class="article-title" itemprop="name">
+      从零开始搭建博客
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -174,24 +182,62 @@
 </li>
 </ol>
 </blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
+<a id="more"></a>
+<p>三、下载博客源代码文件</p>
+<blockquote>
+<ol>
+<li>建一个文件夹并且路径中没有中文，在此文件夹中打开命令行 (hexo init blog),创建blog文件夹</li>
+<li>切换到blog文件夹中  (cd blog)</li>
+<li>安装依赖文件  (npm install)</li>
+<li>在本地开启服务器  (hexo server)</li>
+</ol>
+</blockquote>
+<p>四、安装hexo的git工具插件</p>
+<blockquote>
+<ol>
+<li>安装 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>配置仓库<blockquote>
+<p>(1)找根目录下_config.yml</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> 	   type: git</span><br><span class="line"> 	   repository: git@github.com:hjyl-cheng/hjyl-cheng.github.io.git(远程仓库地址)</span><br><span class="line"> 	   branch: master</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<p>五、上传提交</p>
+<blockquote>
+<ol>
+<li>清除之前产生的public文件 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p><strong><em>注：每改变上传内容，都需要清除一次</em></strong></p>
+<blockquote>
+<ol start="2">
+<li>生成代码并提交到GitHub上 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g //生成的静态文件默认到public文件夹里</span><br><span class="line">hexo d //自动生成静态文件</span><br></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
 
       
-      <div class="clearfix"></div>
     </div>
-      
-        <p class="article-more-link">
-          <a  href="/2019/08/01/01-buildBlog/#more">more >></a>
-        </p>
-      
     
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -200,71 +246,6 @@
 
 
 
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/24/hello-world/" class="article-date">
-  	<time datetime="2019-07-24T01:07:21.261Z" itemprop="datePublished">2019-07-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/hello-world/">
-        Hello World
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-        <p class="article-more-link">
-          <a  href="/2019/07/24/hello-world/#more">more >></a>
-        </p>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -288,8 +269,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
