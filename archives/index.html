@@ -1,1 +1,75 @@
-<!DOCTYPE html><html lang="null"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>Archive | Hexo</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Hexo</h1><a id="logo" href="/.">Hexo</a><p class="description"></p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/" class="current"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><div class="post-archive"><div class="archive-wrap"><h2>2019</h2><ul class="listing"><li><a href="/2019/07/24/hello-world/" title="Hello World"><span class="date">07月24日</span><span class="tite">Hello World</span></a></li></ul></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">John Doe.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script></body></html>
+extends includes/layout.pug
+
+block content
+    div#tag
+        h1.article-sort-item.title= _p('page.articles') + ' - ' + site.posts.length
+        - var year
+        - page.posts.each(function(article){
+            - var tempYear = date(article.date, 'YYYY')
+            if tempYear !== year
+                - year = tempYear
+                .article-sort-item.year= year
+            .article-sort-item
+                if article.link
+                    time.article-time(datetime=date_xml(article.date))= date(article.date)
+                    a.article-link(href=url_for(article.link) target="_blank")
+                        = article.title || 'No Title'
+                else
+                    time.article-time(datetime=date_xml(article.date))= date(article.date)
+                    a.article-link(href=url_for(article.path))= article.title || 'No Title'
+        - })
+    include includes/pagination.pug
+    // - var categoriesList = list_categories({ show_count: false })
+    // - var tagsList = list_tags({ show_count: false })
+    // - var archivesList = list_archives({ show_count: false })
+    //
+    // div.archive
+    //     if !is_year()
+    //
+    //         h1 Archives
+    //
+    //         if theme.atom
+    //             p The feed is available via&nbsp;
+    //                 a(href=theme.atom) atom
+    //                 span .
+    //             br
+    //
+    //         aside
+    //             h2 Categories
+    //             if categoriesList
+    //                 != categoriesList
+    //             else
+    //                 p None.
+    //         br
+    //
+    //         aside
+    //             h2 Tags
+    //             if tagsList
+    //                 != tagsList
+    //             else
+    //                 p None.
+    //         br
+    //
+    //         aside
+    //             h2 Archives
+    //             if archivesList
+    //                 != archivesList
+    //             else
+    //                 p None.
+    //         br
+    //
+    //     else
+    //
+    //         h1= page.month + '/' + page.year
+    //
+    //         - page.posts.each(function(article){
+    //         .archive-list-item
+    //             if article.link
+    //                 a(href=url_for(article.link) target="_blank")= article.title || 'No Title'
+    //             else
+    //                 a(href=url_for(article.path))= article.title || 'No Title'
+    //             time(datetime=date_xml(article.date))= date(article.date)
+    //         - })
+    //         include includes/pagination.pug
+            //div!= paginator()
+
